@@ -1,6 +1,9 @@
 #!/bin/bash
+echo "Installing dependencies..."
 npm install
-cp .env.example .env
-echo "✅ Setup complete! Now edit .env with your keys, then run:"
-echo "npm run scan"
-chmod +x setup.sh
+if [ ! -f .env ]; then
+  cp .env.example .env
+  echo "✅ .env created"
+fi
+echo ""
+echo "✅ Ready! Now run: npm run scan"
